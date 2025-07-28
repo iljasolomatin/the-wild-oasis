@@ -35,7 +35,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         title="Sales"
         color="green"
         icon={<HiOutlineBanknotes />}
-        value={formatCurrency(sales) || <SpinnerMini />}
+        value={sales ? formatCurrency(sales) : <SpinnerMini />}
       />
       <Stat
         title="Check ins"
@@ -47,7 +47,9 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         title="Occupancy rate"
         color="yellow"
         icon={<HiOutlineChartBar />}
-        value={Math.round(occupation * 100) + "%" || <SpinnerMini />}
+        value={
+          occupation ? Math.round(occupation * 100) + "%" : <SpinnerMini />
+        }
       />
     </>
   );
